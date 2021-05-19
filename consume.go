@@ -607,6 +607,8 @@ func (cmd *consumeCmd) partitionLoop(out chan printContext, pc sarama.PartitionC
 			if cmd.group != "" {
 				pom.MarkOffset(msg.Offset+1, "")
 			}
+			
+			os.Exit(0)
 
 			if end > 0 && msg.Offset >= end {
 				return
